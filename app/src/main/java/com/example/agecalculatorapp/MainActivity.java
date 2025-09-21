@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.util.Log;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,7 +13,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-    //These variables will be used to set up the values from the UI
+    //These variables will be used to set up the values grabbed from the device UI
     private EditText etFirstName;
     private EditText etLastName;
     private EditText etDOB;
