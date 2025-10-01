@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,10 +22,9 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<ListItem> list = new ArrayList<>();
         list.add(new ListItem("SWENG 888", "Mobile Application Dev"));
 
+        listView.findViewById(R.id.listView);
 
-        //ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, list);
-
-        //ListView listView = (ListView) findViewById(R.id.mobile_list);
-        //listView.setAdapter(adapter);
+        CustomArrayAdapter customArrayAdapter = new CustomArrayAdapter(this, list);
+        listView.setAdapter(customArrayAdapter);
     }
 }
