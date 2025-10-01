@@ -4,15 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 
@@ -37,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
                 ListItem clickedItem = list.get(position);
 
                 Toast.makeText(MainActivity.this, "Clicked " + clickedItem.getSubtitle(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(MainActivity.this, DetailListActivity.class);
+                intent.putExtra("Item", clickedItem);
+                startActivity(intent);
             }
         });
     }
