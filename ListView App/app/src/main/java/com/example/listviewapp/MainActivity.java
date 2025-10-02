@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.listView);
 
         ArrayList<ListItem> list = new ArrayList<>();
-        list.add(new ListItem("SWENG 888", "Mobile Application Dev"));
+        list.add(new ListItem("SWENG 888", "Mobile Application Dev", "This class is about developing apps"));
+        list.add(new ListItem("SWENG 521", "Database Design", "This Class is about designing databases"));
 
         CustomArrayAdapter customArrayAdapter = new CustomArrayAdapter(this, list);
         listView.setAdapter(customArrayAdapter);
