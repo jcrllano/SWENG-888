@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ListItem clickedItem = list.get(position);
 
-                Toast.makeText(MainActivity.this, "Clicked " + clickedItem.getSubtitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Clicked " + clickedItem.getTitle(), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(MainActivity.this, DetailListActivity.class);
                 intent.putExtra("Item", clickedItem);

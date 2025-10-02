@@ -28,7 +28,7 @@ public class DetailListActivity extends AppCompatActivity {
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                Toast.makeText(DetailListActivity.this, "Returned to main successfully!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetailListActivity.this, "Class List", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
