@@ -24,4 +24,5 @@ public class ListItem implements Serializable {
     public  String getDetails() {
         return  details;
     }
+
 }

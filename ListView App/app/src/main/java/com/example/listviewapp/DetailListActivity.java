@@ -12,10 +12,10 @@ public class DetailListActivity extends AppCompatActivity {
 
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_listview);
-
         TextView title = findViewById(R.id.detailTitle);
         TextView subTitle = findViewById(R.id.detailSubtitle);
         TextView details = findViewById(R.id.details);
+
 
         ListItem list = (ListItem) getIntent().getSerializableExtra("Item");
         if (list != null) {
