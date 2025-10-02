@@ -20,11 +20,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.listView);
         TextView semester = findViewById(R.id.semester);
-        semester.setText("Fall Semester 2025");
+
+        String semesterText = "Spring Semester 2026";
+        semester.setText(semesterText);
 
         ArrayList<ListItem> list = new ArrayList<>();
         list.add(new ListItem("SWENG-888", "Mobile Application Dev", "This class is about developing apps"));
-        list.add(new ListItem("INSC 521","Database Design", "This Class is about designing databases"));
+        list.add(new ListItem("INSC-521","Database Design", "This Class is about designing databases"));
+        list.add(new ListItem("SWENG-877", "Web Application", "This class develops web apps for businessses"));
 
         CustomArrayAdapter customArrayAdapter = new CustomArrayAdapter(this, list);
         listView.setAdapter(customArrayAdapter);
