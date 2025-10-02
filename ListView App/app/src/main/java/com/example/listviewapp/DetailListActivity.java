@@ -24,7 +24,7 @@ public class DetailListActivity extends AppCompatActivity {
             details.setText(list.getDetails());
         }
 
-        Toast.makeText(this, "View Details", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Viewing Class Details", Toast.LENGTH_SHORT).show();
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
