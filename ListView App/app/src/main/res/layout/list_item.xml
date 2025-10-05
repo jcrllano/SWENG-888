@@ -4,13 +4,14 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="12dp">
+    <!--This display's the title-->
     <TextView
         android:id="@+id/listItemTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="18sp"/>
-
+    <!--This displays the subtitle-->
     <TextView
         android:id="@+id/listItemSubTitle"
         android:layout_width="wrap_content"

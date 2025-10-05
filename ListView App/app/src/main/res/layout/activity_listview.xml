@@ -6,20 +6,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp">
-
+    <!--this display the title of the list-->
     <TextView
         android:id="@+id/detailTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="22sp"
         android:textStyle="bold"/>
-
+    <!--this display the subtitle of the list-->
     <TextView
         android:id="@+id/detailSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"/>
-
+    <!--this display the details of the list-->
     <TextView
         android:id="@+id/details"
         android:textSize="12sp"
