@@ -14,10 +14,12 @@ import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
-private List<Product> productList;
+public List<Product> productList;
+public Context context;
 
 // Constructor
-public ProductAdapter(List<Product> productList) {
+public ProductAdapter(Context context, List<Product> productList) {
+    this.context = context;
     this.productList = productList;
 }
 
