@@ -9,6 +9,9 @@ public class Product {
     private double price;
     private String pictureUrl;
 
+    public Product() {
+    }
+
     //this si the constructor that helps get and set the data
     public Product(int id,String name, String description, String seller, double price, String pictureUrl) {
         this.id = id;
