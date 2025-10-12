@@ -54,7 +54,7 @@ public class Product {
         this.seller = seller;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -62,7 +62,7 @@ public class Product {
         this.price = price;
     }
 
-    public String getPictureUrl() {
+    public int getPictureUrl() {
         return pictureUrl;
     }
 

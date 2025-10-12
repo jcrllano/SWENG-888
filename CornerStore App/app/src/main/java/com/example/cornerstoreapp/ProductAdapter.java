@@ -25,7 +25,7 @@ public ProductAdapter(List<Product> productList) {
 @Override
 public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
     View view = LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.exam_card, parent, false);
+            .inflate(R.layout.item_product_list, parent, false);
     return new ProductViewHolder(view);
 }
 
@@ -33,31 +33,30 @@ public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewT
 public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
     Product productItem = productList.get(position);
 
-    holder.examName.setText(examItem.getName());
-    holder.examDate.setText(examItem.getDate());
-    holder.examMessage.setText(examItem.getMessage());
-    holder.examPic.setImageResource(examItem.getImage1());
-    holder.examPic2.setImageResource(examItem.getImage2());
+    holder.textProductName.setText(productItem.getName());
+    holder.textSellerName.setText(productItem.getSeller());
+    holder.textPrice.setText(productItem.getPrice());
+    holder.imageProduct.setImageResource(productItem.getPictureUrl());
 }
 
 @Override
 public int getItemCount() {
-    return examList.size();
+    return productList.size();
 }
 
 // ViewHolder class
 static class ProductViewHolder extends RecyclerView.ViewHolder {
-    TextView examName, examDate, examMessage;
-    ImageView examPic, examPic2;
+    TextView textProductName, textSellerName, textPrice;
+    ImageView imageProduct;
 
     public ProductViewHolder(@NonNull View itemView) {
 
         super(itemView);
 
-        examName = itemView.findViewById(R.id.examName);
-        examDate = itemView.findViewById(R.id.examDate);
-        examMessage = itemView.findViewById(R.id.examMessage);
-        examPic = itemView.findViewById(R.id.examPic);
-        examPic2 = itemView.findViewById(R.id.examPic2);
+        textProductName = itemView.findViewById(R.id.textProductName);
+        textSellerName = itemView.findViewById(R.id.textSellerName);
+        textPrice = itemView.findViewById(R.id.textPrice);
+        imageProduct = itemView.findViewById(R.id.imageProduct);
     }
+}
 }
