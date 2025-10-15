@@ -27,14 +27,21 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         DatabaseHelper databaseHelper = new DatabaseHelper(this);
-        Product product = new Product(1,"Red Apple", "This a honeycrisp apple","MountainApple", 1,R.drawable.apple);
-        databaseHelper.addProduct(product);
-
+        //Product product = new Product(1,"Red Apple", "This a honeycrisp apple","MountainApple", 1,R.drawable.apple);
+        //databaseHelper.addProduct(product);
+        addProducts(databaseHelper);
         List<Product> products = databaseHelper.getAllProducts();
         productAdapter = new ProductAdapter(this, products);
         recyclerView.setAdapter(productAdapter);
         for (Product p : products) {
             Log.d("product:", p.toString());
+        }
+    }
+
+    public void addProducts(DatabaseHelper db) {
+        if (db.getAllProducts().isEmpty()) {
+            db.addProduct(new Product(1,"Red Apple", "This a honeycrisp apple","MountainApple", 1,R.drawable.apple));
+            db.addProduct(new Product(2,"Banana", "This is a organic banana","RainForestBanana", 0.75,R.drawable.banana));
         }
     }
 }
