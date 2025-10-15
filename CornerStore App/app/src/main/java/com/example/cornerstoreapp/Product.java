@@ -8,6 +8,7 @@ public class Product {
     private String seller;
     private double price;
     private int pictureID;
+    private boolean selectedItem;
 
     public Product() {
     }
@@ -22,6 +23,8 @@ public class Product {
         this.pictureID = pictureID;
     }
 
+    public boolean Selected() { return selectedItem; }
+    public void setSelected(boolean selectedItem) { this.selectedItem = selectedItem; }
     public int getId() {
         return id;
     }
