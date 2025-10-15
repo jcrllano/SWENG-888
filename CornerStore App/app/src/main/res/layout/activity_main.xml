@@ -18,8 +18,8 @@
             android:text="Products"
             android:textAlignment="center"
             android:background="@android:color/darker_gray"
-            android:paddingTop="54sp"
-            android:paddingBottom="20sp"
+            android:paddingTop="60sp"
+            android:paddingBottom="25sp"
             android:textSize="24sp"/>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -28,6 +28,13 @@
             android:layout_width="match_parent"
             android:overScrollMode="never"
             android:layout_height="wrap_content"/>
-
+        <Button
+            android:id="@+id/buttonCartList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to cart"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp" />
     </LinearLayout>
+
 </ScrollView>
