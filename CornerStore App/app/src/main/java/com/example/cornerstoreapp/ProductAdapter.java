@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
@@ -37,14 +39,14 @@ public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
 
     holder.textProductName.setText(productItem.getName());
     holder.textSellerName.setText(productItem.getSeller());
-    holder.textPrice.setText(productItem.getPrice());
-    holder.imageProduct.setImageResource(productItem.getPictureUrl());
+    holder.textPrice.setText("$ " +productItem.getPrice());
+    holder.imageProduct.setImageResource(productItem.getPictureID());
 }
 
 @Override
 public int getItemCount() {
     return productList.size();
-}
+} 
 
 // ViewHolder class
 static class ProductViewHolder extends RecyclerView.ViewHolder {

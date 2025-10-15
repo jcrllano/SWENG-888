@@ -7,19 +7,19 @@ public class Product {
     private String description;
     private String seller;
     private double price;
-    private String pictureUrl;
+    private int pictureID;
 
     public Product() {
     }
 
     //this si the constructor that helps get and set the data
-    public Product(int id,String name, String description, String seller, double price, String pictureUrl) {
+    public Product(int id,String name, String description, String seller, double price, int pictureID) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.seller = seller;
         this.price =  price;
-        this.pictureUrl = pictureUrl;
+        this.pictureID = pictureID;
     }
 
     public int getId() {
@@ -62,12 +62,12 @@ public class Product {
         this.price = price;
     }
 
-    public String getPictureUrl() {
-        return pictureUrl;
+    public int getPictureID() {
+        return pictureID;
     }
 
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
+    public void setPictureID(int pictureUrl) {
+        this.pictureID = pictureUrl;
     }
 
 }

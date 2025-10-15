@@ -11,14 +11,14 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "CornerStore.db";
-    public static final Integer DATABASE_VERSION = 1;
+    public static final Integer DATABASE_VERSION = 3;
     public static final String DATABASE_TABLE_NAME = "products";
     public static final String DATABASE_COLUMN_ID = "id";
     public static final String DATABASE_COLUMN_NAME = "name";
     public static final String DATABASE_COLUMN_DESCRIPTION = "description";
     public static final String DATABASE_COLUMN_SELLER = "seller";
     public static final String DATABASE_COLUMN_PRICE = "price";
-    public static final String DATABASE_COLUMN_PICTURE_URL = "pictureUrl";
+    public static final String DATABASE_COLUMN_PICTURE_ID = "pictureID";
 
 
     public DatabaseHelper(Context context) {
@@ -27,11 +27,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE =
             "CREATE TABLE " + DATABASE_TABLE_NAME  + " (" +
                     DATABASE_COLUMN_ID + " INTEGER PRIMARY KEY, " +
-                    DATABASE_COLUMN_NAME + " TEXT, " +
+                    DATABASE_COLUMN_NAME + " TEXT UNIQUE, " +
                     DATABASE_COLUMN_DESCRIPTION + " TEXT, " +
                     DATABASE_COLUMN_SELLER + " TEXT, " +
                     DATABASE_COLUMN_PRICE + " REAL, " +
-                    DATABASE_COLUMN_PICTURE_URL + " TEXT" +
+                    DATABASE_COLUMN_PICTURE_ID + " INTEGER" +
                     ");";
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -52,7 +52,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(DATABASE_COLUMN_DESCRIPTION, product.getDescription());
         values.put(DATABASE_COLUMN_SELLER, product.getSeller());
         values.put(DATABASE_COLUMN_PRICE, product.getPrice());
-        values.put(DATABASE_COLUMN_PICTURE_URL, product.getPictureUrl());
+        values.put(DATABASE_COLUMN_PICTURE_ID, product.getPictureID());
 
         long id = db.insert(DATABASE_TABLE_NAME, null, values);
         db.close();
@@ -72,7 +72,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 product.setDescription(cursor.getString(cursor.getColumnIndexOrThrow(DATABASE_COLUMN_DESCRIPTION)));
                 product.setSeller(cursor.getString(cursor.getColumnIndexOrThrow(DATABASE_COLUMN_SELLER)));
                 product.setPrice(cursor.getDouble(cursor.getColumnIndexOrThrow(DATABASE_COLUMN_PRICE)));
-                product.setPictureUrl(cursor.getString(cursor.getColumnIndexOrThrow(DATABASE_COLUMN_PICTURE_URL)));
+                product.setPictureID(cursor.getInt(cursor.getColumnIndexOrThrow(DATABASE_COLUMN_PICTURE_ID)));
                 productList.add(product);
             } while (cursor.moveToNext());
         }

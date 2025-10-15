@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         DatabaseHelper databaseHelper = new DatabaseHelper(this);
-        Product product = new Product(1,"Apple", "This a honeycrisp apple","MountainApple", 1,null);
+        Product product = new Product(1,"Red Apple", "This a honeycrisp apple","MountainApple", 1,R.drawable.apple);
         databaseHelper.addProduct(product);
 
         List<Product> products = databaseHelper.getAllProducts();
