@@ -41,9 +41,10 @@ public class MainActivity extends AppCompatActivity {
         buttonCart.setOnClickListener(v -> {
             ArrayList<Product> productList = new ArrayList<>();
             for (Product product : products) {
-                if (product.Selected())
-                    Log.d("this are the product:", product.getName());
+                if (product.Selected()) {
                     productList.add(product);
+                    Log.d("this are the product:", product.getName());
+                }
             }
             Intent intent = new Intent(MainActivity.this, com.example.cornerstoreapp.CartList.class);
             intent.putExtra("selected_products", productList);

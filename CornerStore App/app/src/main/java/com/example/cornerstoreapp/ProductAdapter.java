@@ -11,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -41,9 +40,10 @@ public void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int p
     productViewHolder.textSellerName.setText(productItem.getSeller());
     productViewHolder.textPrice.setText("$ " +productItem.getPrice());
     productViewHolder.imageProduct.setImageResource(productItem.getPictureID());
-    productViewHolder.checkBoxList.setChecked(productItem.Selected());
 
     productViewHolder.checkBoxList.setOnCheckedChangeListener(null);
+    productViewHolder.checkBoxList.setChecked(productItem.Selected());
+
     productViewHolder.checkBoxList.setOnCheckedChangeListener((buttonView, isChecked) -> {
         productItem.setSelected(isChecked);
     });
