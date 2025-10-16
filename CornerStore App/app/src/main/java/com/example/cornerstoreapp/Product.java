@@ -1,6 +1,6 @@
 package com.example.cornerstoreapp;
 
-public class Product {
+public class Product implements java.io.Serializable{
     //This are the variables that will pass the product information across the view and the database
     private int id;
     private String name;

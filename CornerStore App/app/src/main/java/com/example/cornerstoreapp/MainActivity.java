@@ -1,7 +1,9 @@
 package com.example.cornerstoreapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,9 +36,20 @@ public class MainActivity extends AppCompatActivity {
         List<Product> products = databaseHelper.getAllProducts();
         productAdapter = new ProductAdapter(this, products);
         recyclerView.setAdapter(productAdapter);
-        for (Product p : products) {
-            Log.d("product:", p.toString());
-        }
+
+        Button buttonCart = findViewById(R.id.buttonCartList);
+        buttonCart.setOnClickListener(v -> {
+            ArrayList<Product> productList = new ArrayList<>();
+            for (Product product : products) {
+                if (product.Selected())
+                    Log.d("product:", product.toString());
+                    productList.add(product);
+            }
+            Intent intent = new Intent(MainActivity.this, com.example.cornerstoreapp.CartList.class);
+            intent.putExtra("selected_products", productList);
+            startActivity(intent);
+
+        });
     }
 
     public void addProducts(DatabaseHelper db) {

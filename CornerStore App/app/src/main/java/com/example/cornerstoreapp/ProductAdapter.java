@@ -34,13 +34,16 @@ public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewT
 }
 
 @Override
-public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
+public void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int position) {
     Product productItem = productList.get(position);
 
-    holder.textProductName.setText(productItem.getName());
-    holder.textSellerName.setText(productItem.getSeller());
-    holder.textPrice.setText("$ " +productItem.getPrice());
-    holder.imageProduct.setImageResource(productItem.getPictureID());
+    productViewHolder.textProductName.setText(productItem.getName());
+    productViewHolder.textSellerName.setText(productItem.getSeller());
+    productViewHolder.textPrice.setText("$ " +productItem.getPrice());
+    productViewHolder.imageProduct.setImageResource(productItem.getPictureID());
+    productViewHolder.itemView.setOnClickListener(v -> {
+        productItem.setSelected(!productItem.Selected());
+    });
 }
 
 @Override
