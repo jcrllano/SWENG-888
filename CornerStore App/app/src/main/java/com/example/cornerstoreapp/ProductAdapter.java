@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,8 +29,7 @@ public ProductAdapter(Context context, List<Product> productList) {
 @NonNull
 @Override
 public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    View view = LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.item_product_list, parent, false);
+    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product_list, parent, false);
     return new ProductViewHolder(view);
 }
 
@@ -41,8 +41,11 @@ public void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int p
     productViewHolder.textSellerName.setText(productItem.getSeller());
     productViewHolder.textPrice.setText("$ " +productItem.getPrice());
     productViewHolder.imageProduct.setImageResource(productItem.getPictureID());
-    productViewHolder.itemView.setOnClickListener(v -> {
-        productItem.setSelected(!productItem.Selected());
+    productViewHolder.checkBoxList.setChecked(productItem.Selected());
+
+    productViewHolder.checkBoxList.setOnCheckedChangeListener(null);
+    productViewHolder.checkBoxList.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        productItem.setSelected(isChecked);
     });
 }
 
@@ -56,6 +59,8 @@ static class ProductViewHolder extends RecyclerView.ViewHolder {
     TextView textProductName, textSellerName, textPrice;
     ImageView imageProduct;
 
+    CheckBox checkBoxList;
+
     public ProductViewHolder(@NonNull View itemView) {
 
         super(itemView);
@@ -64,6 +69,7 @@ static class ProductViewHolder extends RecyclerView.ViewHolder {
         textSellerName = itemView.findViewById(R.id.textSellerName);
         textPrice = itemView.findViewById(R.id.textPrice);
         imageProduct = itemView.findViewById(R.id.imageProduct);
+        checkBoxList= itemView.findViewById(R.id.checkboxList);
     }
 }
 }

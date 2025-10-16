@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             ArrayList<Product> productList = new ArrayList<>();
             for (Product product : products) {
                 if (product.Selected())
-                    Log.d("product:", product.toString());
+                    Log.d("this are the product:", product.getName());
                     productList.add(product);
             }
             Intent intent = new Intent(MainActivity.this, com.example.cornerstoreapp.CartList.class);
