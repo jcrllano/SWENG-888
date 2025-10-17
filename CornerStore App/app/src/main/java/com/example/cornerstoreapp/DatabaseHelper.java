@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "CornerStore.db";
-    public static final Integer DATABASE_VERSION = 5;
+    public static final Integer DATABASE_VERSION = 6;
     public static final String DATABASE_TABLE_NAME = "products";
     public static final String DATABASE_COLUMN_ID = "id";
     public static final String DATABASE_COLUMN_NAME = "name";

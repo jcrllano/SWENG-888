@@ -40,7 +40,8 @@ public class CartList extends AppCompatActivity {
             stringBuilder.append(product.getName());
             stringBuilder.append(" $");
             stringBuilder.append(product.getPrice());
-
+            stringBuilder.append("\n");
+        }
             Intent intent = new Intent(Intent.ACTION_SENDTO);
             intent.setData(android.net.Uri.parse("mailto:"));
             intent.putExtra(intent.EXTRA_EMAIL, new String[]{"dolphinsnotredamfan@yahoo.com"});
@@ -49,7 +50,7 @@ public class CartList extends AppCompatActivity {
 
             startActivity(intent);
             emailSent = true;
-        }
+
     }
 
    @Override
