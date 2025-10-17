@@ -38,6 +38,7 @@ public void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int p
 
     productViewHolder.textProductName.setText(productItem.getName());
     productViewHolder.textSellerName.setText(productItem.getSeller());
+    productViewHolder.textDescription.setText(productItem.getDescription());
     productViewHolder.textPrice.setText("$ " +productItem.getPrice());
     productViewHolder.imageProduct.setImageResource(productItem.getPictureID());
 
@@ -56,7 +57,7 @@ public int getItemCount() {
 
 // ViewHolder class
 static class ProductViewHolder extends RecyclerView.ViewHolder {
-    TextView textProductName, textSellerName, textPrice;
+    TextView textProductName, textSellerName, textPrice, textDescription;
     ImageView imageProduct;
 
     CheckBox checkBoxList;
@@ -66,6 +67,7 @@ static class ProductViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         textProductName = itemView.findViewById(R.id.textProductName);
+        textDescription = itemView.findViewById(R.id.textDescription);
         textSellerName = itemView.findViewById(R.id.textSellerName);
         textPrice = itemView.findViewById(R.id.textPrice);
         imageProduct = itemView.findViewById(R.id.imageProduct);

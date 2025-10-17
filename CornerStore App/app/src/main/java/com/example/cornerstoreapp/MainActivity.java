@@ -55,8 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void addProducts(DatabaseHelper db) {
         if (db.getAllProducts().isEmpty()) {
-            db.addProduct(new Product(1,"Red Apple", "This a honeycrisp apple","MountainApple", 1,R.drawable.apple));
-            db.addProduct(new Product(2,"Banana", "This is a organic banana","RainForestBanana", 0.75,R.drawable.banana));
+            db.addProduct(new Product(1,"Red Apple", "This a honeycrisp apple","Mountain Apple", 1,R.drawable.apple));
+            db.addProduct(new Product(2,"Banana", "This is a organic banana","Rain Forest Banana", 0.75,R.drawable.banana));
+            db.addProduct(new Product(3, "Strawberry", "This is an organic strawberry", "California StrawBerry Farms", 0.15, R.drawable.strawberry));
         }
     }
 }
