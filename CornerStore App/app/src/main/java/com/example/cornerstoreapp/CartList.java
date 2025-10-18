@@ -61,7 +61,7 @@ public class CartList extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_SENDTO);
             //this set the email address on the recipient address
             intent.setData(android.net.Uri.parse("mailto:"));
-            intent.putExtra(intent.EXTRA_EMAIL, new String[]{"dolphinsnotredamfan@yahoo.com"});
+            intent.putExtra(intent.EXTRA_EMAIL, new String[]{"sweng888mobileapps@gmail.com"});
             intent.putExtra(intent.EXTRA_SUBJECT, "My Products");
             intent.putExtra(intent.EXTRA_TEXT, stringBuilder.toString());
 
