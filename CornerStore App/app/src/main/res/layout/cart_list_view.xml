@@ -9,7 +9,7 @@
         android:id="@+id/btnSendEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send Products to Email " />
+        android:text="Send Products by Email " />
     <!--This set the recycler view-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
