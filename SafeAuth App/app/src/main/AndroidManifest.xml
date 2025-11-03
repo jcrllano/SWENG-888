@@ -9,9 +9,11 @@
         android:label="@string/appname"
         android:theme="@style/Theme.SafeAuthApp">
 
+        <!-- SplashActivity: launcher entry point -->
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.SafeAuthApp.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -22,5 +24,6 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity" />
     </application>
+
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

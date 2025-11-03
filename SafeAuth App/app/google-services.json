@@ -1,32 +1,13 @@
 {
   "project_info": {
-    "project_number": "444209177717",
-    "project_id": "safeauth-3e9d1",
-    "storage_bucket": "safeauth-3e9d1.firebasestorage.app"
+    "project_number": "1028489397129",
+    "project_id": "safeauth-3c52e",
+    "storage_bucket": "safeauth-3c52e.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:444209177717:android:1507d10f146140bb15843c",
-        "android_client_info": {
-          "package_name": "com.example.safeauth"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDLJgCcga9jHwygGd75lXyVJ24ikIHJOds"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:444209177717:android:bed4cd5e6ac0aaff15843c",
+        "mobilesdk_app_id": "1:1028489397129:android:81ef15060b3a0cc50c5758",
         "android_client_info": {
           "package_name": "com.example.safeauthapp"
         }
@@ -34,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDLJgCcga9jHwygGd75lXyVJ24ikIHJOds"
+          "current_key": "AIzaSyC4iZiIbi8Oa5BNScuqZzYCHViqIT25ceQ"
         }
       ],
       "services": {

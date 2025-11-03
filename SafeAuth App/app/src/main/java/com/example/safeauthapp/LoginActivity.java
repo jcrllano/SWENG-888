@@ -13,8 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
-    public EditText emailInput, passwordInput;
-    public FirebaseAuth firebaseAuth;
+    private EditText emailInput, passwordInput;
+    private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,12 +27,24 @@ public class LoginActivity extends AppCompatActivity {
         Button loginBtn = findViewById(R.id.loginBtn);
         TextView signUpLink = findViewById(R.id.SignUpLink);
 
+        // Login Button
         loginBtn.setOnClickListener(v -> loginUser());
+
+        // Sign-up URL link
+        signUpLink.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void loginUser() {
-        String email = emailInput.getText().toString();
-        String password = passwordInput.getText().toString();
+        String email = emailInput.getText().toString().trim();
+        String password = passwordInput.getText().toString().trim();
+
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener(authResult -> {
@@ -39,9 +52,8 @@ public class LoginActivity extends AppCompatActivity {
                     intent.putExtra("username", email);
                     startActivity(intent);
                     finish();
-                }).addOnFailureListener(e ->
+                })
+                .addOnFailureListener(e ->
                         Toast.makeText(this, "Login failed: " + e.getMessage(), Toast.LENGTH_SHORT).show());
     }
 }
-
-

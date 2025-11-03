@@ -1,9 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.SafeAuthApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <!-- Base application theme -->
+    <style name="Base.Theme.SafeAuthApp" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <!-- Normal runtime theme -->
+    <style name="Theme.SafeAuthApp" parent="Base.Theme.SafeAuthApp" />
+
+    <!-- Splash Screen Theme -->
+    <style name="Theme.SafeAuthApp.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/applogo</item>
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimationDuration">500</item>
+        <item name="postSplashScreenTheme">@style/Theme.SafeAuthApp</item>
     </style>
 
-    <style name="Theme.SafeAuthApp" parent="Base.Theme.SafeAuthApp" />
 </resources>

@@ -47,7 +47,7 @@ public class SignUpActivity extends AppCompatActivity {
                 Toast.makeText(this, "Sign up failed: " + t.getException().getMessage(), Toast.LENGTH_LONG).show();
                 return;
             }
-            // Update display name
+            // This Updates the user
             auth.getCurrentUser().updateProfile(
                     new UserProfileChangeRequest.Builder().setDisplayName(name).build()
             );

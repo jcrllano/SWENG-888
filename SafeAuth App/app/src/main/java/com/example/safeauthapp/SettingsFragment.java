@@ -15,7 +15,7 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         TextView textView = new TextView(getContext());
-        textView.setText("Settings (e.g., language switch goes here)");
+        textView.setText("Settings (The app settings to make it look better goes here )");
         textView.setPadding(24,24,24,24);
         return textView;
     }

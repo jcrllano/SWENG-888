@@ -5,22 +5,25 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.splashscreen.SplashScreen;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashActivity extends AppCompatActivity {
-    // 3 seconds of splash duration
-    public static final int splashLength = 3000;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.installSplashScreen(this);
+        super.onCreate(savedInstanceState);
 
-    public void onCreate(Bundle bundle) {
-
-        super.onCreate(bundle);
-        setContentView(R.layout.activity_splash);
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            startActivity(new Intent(this, MainActivity.class));
-        } else {
-            startActivity(new Intent(this, LoginActivity.class));
-        }
-        finish();
+        new Handler().postDelayed(() -> {
+            if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                // If user is logged in → go to MainActivity
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+            } else {
+                // Otherwise → go to LoginActivity
+                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+            }
+            finish(); //Always close SplashActivity
+        }, 2000);
     }
 }
