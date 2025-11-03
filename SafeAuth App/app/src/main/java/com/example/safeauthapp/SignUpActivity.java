@@ -15,11 +15,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
+//This class Sign-Up screen that allows new users to create accounts using Firebase authentication and Firestore
 public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseFirestore db;
     private EditText etName, etEmail, etPassword;
 
+    //This method connects to Firebase authentication and Firestore services.
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
@@ -34,6 +36,7 @@ public class SignUpActivity extends AppCompatActivity {
         btnCreate.setOnClickListener(v -> createAccount());
     }
 
+    //This method handles all the logic for registration
     private void createAccount() {
         String name = etName.getText().toString().trim();
         String email = etEmail.getText().toString().trim();

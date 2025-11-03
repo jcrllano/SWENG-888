@@ -21,12 +21,14 @@ import com.example.safeauthapp.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
+//This is the main activity and It manages the Navigation Drawer, Toolbar, and Fragment switching for different screens like Items, Account, and Settings.
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private ActivityMainBinding binding;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
 
+    //This method All the UI elements like toolbar, drawer, navigation menu come from this layout.
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity
         replace(new ListFragment());
     }
 
+    //Ths method closes the drawer after switching to keep the UI clean.
     private void replace(Fragment f) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragmentContainer, f).commit();

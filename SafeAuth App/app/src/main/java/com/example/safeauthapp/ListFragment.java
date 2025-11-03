@@ -16,11 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.safeauthapp.databinding.FragmentItemsBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -31,6 +26,7 @@ import org.jspecify.annotations.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
+// This class manages the item list using Firebase Firestore.
 public class ListFragment extends Fragment {
     private FragmentItemsBinding binding;
     private FirebaseFirestore db;
@@ -39,12 +35,15 @@ public class ListFragment extends Fragment {
     private ItemAdapter adapter;
     private ListenerRegistration listenerReg;
 
-    @Nullable @Override
+    //This returns the root view to display the fragment UI
+    @Nullable
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentItemsBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
+    //This method Initializes Firestore and the items collection
     @Override public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         db = FirebaseFirestore.getInstance();
         itemsRef = db.collection("items");
@@ -57,7 +56,7 @@ public class ListFragment extends Fragment {
         FloatingActionButton fab = binding.fabAdd;
         fab.setOnClickListener(v -> showAddDialog());
 
-        // Swipe to delete
+        // This method enables swipe left or right to delete an item.
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override public boolean onMove(@NonNull RecyclerView recyclerView, RecyclerView.@NonNull ViewHolder viewHolder, RecyclerView.@NonNull ViewHolder target) { return false; }
             @Override public void onSwiped(RecyclerView.@NonNull ViewHolder viewHolder, int direction) {
@@ -68,6 +67,7 @@ public class ListFragment extends Fragment {
         }).attachToRecyclerView(rv);
     }
 
+    //This method loads the dialog_add_item.xml layout and Adds a new Item document to the items Firestore collection.
     private void showAddDialog() {
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_add_item, null);
         EditText etTitle = dialogView.findViewById(R.id.etTitle);
@@ -87,7 +87,7 @@ public class ListFragment extends Fragment {
                 .setNegativeButton("Cancel", null)
                 .show();
     }
-
+    //This method is called when the fragment starts, it listens in real time to changes in the Firestore "items" collection.
     @Override public void onStart() {
         super.onStart();
         listenerReg = itemsRef.orderBy("title")
@@ -105,6 +105,7 @@ public class ListFragment extends Fragment {
                 });
     }
 
+    //This method is called when the fragment is no longer visible
     @Override public void onStop() {
         super.onStop();
         if (listenerReg != null) listenerReg.remove();

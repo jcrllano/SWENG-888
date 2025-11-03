@@ -12,10 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+//This class handles user sign-in, error handling, and navigation to other parts of the app
 public class LoginActivity extends AppCompatActivity {
     private EditText emailInput, passwordInput;
     private FirebaseAuth firebaseAuth;
 
+    //this method sets up the authentication and links UI components
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    //This method performs Firebase email/password login.
     private void loginUser() {
         String email = emailInput.getText().toString().trim();
         String password = passwordInput.getText().toString().trim();
@@ -46,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        //This method checks credentials against Firebase authentication
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener(authResult -> {
                     Intent intent = new Intent(this, MainActivity.class);

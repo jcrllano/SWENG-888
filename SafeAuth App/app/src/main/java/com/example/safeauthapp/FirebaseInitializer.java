@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.google.firebase.FirebaseApp;
 
+//This class initializes the firebase authentication
 public class FirebaseInitializer extends Application {
     @Override
     public void onCreate() {

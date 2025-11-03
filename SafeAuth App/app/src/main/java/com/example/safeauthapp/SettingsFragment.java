@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+//This class sets a simple placeholder fragment for the app’s settings screen
 public class SettingsFragment extends Fragment {
     @Nullable
     @Override

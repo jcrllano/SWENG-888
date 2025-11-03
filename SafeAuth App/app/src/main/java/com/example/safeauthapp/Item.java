@@ -1,11 +1,14 @@
 package com.example.safeauthapp;
 
+//Thi class will set the apps title and other descriptions on the app
 public class Item {
     private String id;
     private String title;
     private String desc;
 
-    public Item() {} // Firestore needs no-arg
+
+    //This is the default constructor
+    public Item() {}
 
     public Item(String id, String title, String desc) {
         this.id = id; this.title = title; this.desc = desc;
