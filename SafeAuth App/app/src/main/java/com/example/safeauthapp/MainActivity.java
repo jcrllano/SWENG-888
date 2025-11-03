@@ -16,11 +16,13 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
-import com.example.safeauth.databinding.ActivityMainBinding;
+import com.example.safeauthapp.databinding.ActivityMainBinding;
+
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public abstract class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
     private ActivityMainBinding binding;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
