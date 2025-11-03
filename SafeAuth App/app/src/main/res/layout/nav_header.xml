@@ -16,7 +16,7 @@
         android:contentDescription="User Icon"
         android:layout_marginBottom="10dp"
         app:tint="@android:color/white" />
-
+    <!--This show the username on the navigation header-->
     <TextView
         android:id="@+id/username"
         android:layout_width="wrap_content"

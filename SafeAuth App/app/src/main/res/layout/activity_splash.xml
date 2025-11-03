@@ -9,12 +9,12 @@
     android:padding="28dp"
     android:background="?attr/colorSurface"
     tools:context=".SplashActivity">
-
+    <!--This set the splash logo-->
     <ImageView
         android:id="@+id/logo"
         android:layout_width="160dp"
         android:layout_height="160dp" />
-
+    <!--This set the app title-->
     <TextView
         android:id="@+id/AppTitle"
         android:layout_width="wrap_content"
