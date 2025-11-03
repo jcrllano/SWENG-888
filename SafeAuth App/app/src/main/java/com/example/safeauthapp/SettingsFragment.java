@@ -16,7 +16,7 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         TextView textView = new TextView(getContext());
         textView.setText("Settings (The app settings to make it look better goes here )");
-        textView.setPadding(24,24,24,24);
+        textView.setPadding(28,28,28,28);
         return textView;
     }
 }

@@ -11,10 +11,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
-
+//This is the fragment user account, this will display the user name and email once the user creates the account or log in
 public class AccountFragment extends Fragment {
     @Nullable
     @Override
+    //This method displays the logged-in user's information retrieved from Firebase Authentication
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_account, container, false);
         TextView tvWelcome = view.findViewById(R.id.tvWelcome);

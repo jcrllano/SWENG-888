@@ -17,13 +17,13 @@ public class SplashActivity extends AppCompatActivity {
 
         new Handler().postDelayed(() -> {
             if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-                // If user is logged in → go to MainActivity
+                // If user is logged this will go to MainActivity
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
             } else {
-                // Otherwise → go to LoginActivity
+                // Otherwise go to LoginActivity
                 startActivity(new Intent(SplashActivity.this, LoginActivity.class));
             }
             finish(); //Always close SplashActivity
-        }, 2000);
+        }, 3000);
     }
 }
