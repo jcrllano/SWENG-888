@@ -7,9 +7,6 @@ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,7 +15,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-    DatabaseHelper databaseHelper;
     ProductAdapter productAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,19 +22,23 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        //This method sets the recycler view on the recycler view
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        //This calls the databasehelper class
         DatabaseHelper databaseHelper = new DatabaseHelper(this);
-        //Product product = new Product(1,"Red Apple", "This a honeycrisp apple","MountainApple", 1,R.drawable.apple);
-        //databaseHelper.addProduct(product);
         addProducts(databaseHelper);
+        //This sets the products into an list of products gathered from the database
         List<Product> products = databaseHelper.getAllProducts();
         productAdapter = new ProductAdapter(this, products);
         recyclerView.setAdapter(productAdapter);
 
+        //This calls the click from the layout submit button
         Button buttonCart = findViewById(R.id.buttonCartList);
+        //This initiates an activity when the button is clicked
         buttonCart.setOnClickListener(v -> {
+            //This set the product list into an array list
             ArrayList<Product> productList = new ArrayList<>();
             for (Product product : products) {
                 if (product.Selected()) {
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("this are the product:", product.getName());
                 }
             }
+            //This initiates the intent
             Intent intent = new Intent(MainActivity.this, com.example.cornerstoreapp.CartList.class);
             intent.putExtra("selected_products", productList);
             startActivity(intent);
