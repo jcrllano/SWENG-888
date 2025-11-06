@@ -2,4 +2,7 @@
     <string name="app_name">JourneyTales</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="welcome_title">Welcome to JourneyTales!</string>
+    <string name="home_screen_image_description">World map.</string>
+    <string name="home_description_text">Welcome to our JourneyTales App!</string>
 </resources>

@@ -15,9 +15,14 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,21 +37,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        //This initialize the DrawerLayout and NavigationView
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigation_view);
+
+        //This set the listener for the NavigationView
+        navigationView.setNavigationItemSelectedListener(this);
+
         // This finds and set the Toolbar as the ActionBar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //This will set the custom title on the top of the home page
-        getSupportActionBar().setTitle("Home Page");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Home Page");
 
         // Enable the navigation (back) icon
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        //This sets up the action bar drawer toggle
+        //This handles the hamburger icon and its animation.
+        androidx.appcompat.app.ActionBarDrawerToggle toggle = new androidx.appcompat.app.ActionBarDrawerToggle(
+                this, drawerLayout, toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close
+        );
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
 
         // Floating Action Button setup
         floatingActionButton = findViewById(R.id.fab);
@@ -74,9 +90,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-
+        Fragment fragment = null;
         if (id == R.id.nav_home) {
             Toast.makeText(this, "Home clicked", Toast.LENGTH_SHORT).show();
+            fragment = new HomeFragment();
         } else if (id == R.id.nav_profile) {
             Toast.makeText(this, "Profile clicked", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_settings) {
@@ -85,8 +102,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return false;
         }
 
+        // 2. Load the selected Fragment (if one was chosen)
+        if (fragment != null) {
+            loadFragment(fragment);
+            //This updates the Toolbar title
+            getSupportActionBar().setTitle(item.getTitle());
+        }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    //This loads the fragment Loading Helper Method
+    private void loadFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        //This replacea the content of the fragment_container with the new Fragment
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+
+        fragmentTransaction.commit();
     }
 
 }
