@@ -22,14 +22,16 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <ImageView
-            android:id="@+id/home_image"
-            android:layout_width="match_parent" android:layout_height="200dp"
+            android:id="@+id/about_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
             android:scaleType="centerCrop"
             android:contentDescription="@string/home_screen_image_description"
-            android:src="@drawable/outline_add_home_24"
+            android:src="@drawable/aboutimage"
             android:layout_marginTop="32dp" /> <TextView
             android:id="@+id/home_title"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/welcome_title"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -38,7 +40,8 @@
 
         <TextView
             android:id="@+id/home_description"
-            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/home_description_text"
             android:textSize="16sp"
             android:lineSpacingExtra="4dp"

@@ -7,11 +7,10 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class HomeFragment extends Fragment {
+public class AboutFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Replace with your actual fragment layout file
-        return inflater.inflate(R.layout.home_fragment_activity, container, false);
+        return inflater.inflate(R.layout.about_fragment_activity, container, false);
     }
 }
