@@ -1,7 +1,9 @@
 package com.example.journeytales;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -83,29 +85,55 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         Fragment fragment = null;
+
+        // Find both sections
+        View homeContent = findViewById(R.id.home_content);
+        View fragmentContainer = findViewById(R.id.fragment_container);
+
         if (id == R.id.nav_about) {
             Toast.makeText(this, "About clicked", Toast.LENGTH_SHORT).show();
             fragment = new AboutFragment();
+
+            // hide home, show fragment
+            homeContent.setVisibility(View.GONE);
+            fragmentContainer.setVisibility(View.VISIBLE);
+
+        } else if (id == R.id.nav_home) {
+            Toast.makeText(this, "Home clicked", Toast.LENGTH_SHORT).show();
+
+            // show home, hide fragment
+            homeContent.setVisibility(View.VISIBLE);
+            fragmentContainer.setVisibility(View.GONE);
+
+            // remove existing fragment
+            Fragment existingFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+            if (existingFragment != null) {
+                getSupportFragmentManager().beginTransaction().remove(existingFragment).commit();
+            }
+            getSupportActionBar().setTitle("Home Page");
         } else if (id == R.id.nav_profile) {
             Toast.makeText(this, "Profile clicked", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_settings) {
-            Toast.makeText(this, "Settings clicked", Toast.LENGTH_SHORT).show();
-        } else {
-            return false;
+            fragment = new ProfileFragment();
+
+            // hide home, show fragment
+            homeContent.setVisibility(View.GONE);
+            fragmentContainer.setVisibility(View.VISIBLE);
+
         }
 
-        // 2. Load the selected Fragment (if one was chosen)
         if (fragment != null) {
             loadFragment(fragment);
-            //This updates the Toolbar title
             getSupportActionBar().setTitle(item.getTitle());
         }
+
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
     //This loads the fragment Loading Helper Method
     private void loadFragment(Fragment fragment) {

@@ -23,29 +23,41 @@
             app:titleTextColor="@android:color/black"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-        <ImageView
-            android:id="@+id/about_image"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:contentDescription="@string/home_screen_image_description"
-            android:src="@drawable/worldmap"
-            android:layout_marginTop="32dp" /> <TextView
-            android:id="@+id/home_title"
+        <!-- Wrap home content inside a container -->
+        <LinearLayout
+            android:id="@+id/home_content"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your Tales of your Joruneys Accorss the Globe"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginTop="24dp"
-            android:gravity="center" />
+            android:padding="16dp">
 
-        <!-- Content Area -->
+            <ImageView
+                android:id="@+id/about_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/home_screen_image_description"
+                android:src="@drawable/worldmap"
+                android:layout_marginTop="32dp" />
+
+            <TextView
+                android:id="@+id/home_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your Tales of your Journeys Across the Globe"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Fragment Container -->
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/white">
+            android:background="@android:color/white"
+            android:visibility="gone">
 
             <!-- Floating Action Button -->
             <com.google.android.material.floatingactionbutton.FloatingActionButton
