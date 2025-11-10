@@ -49,6 +49,17 @@
                 android:textStyle="bold"
                 android:layout_marginTop="24dp"
                 android:gravity="center" />
+
+            <!-- Feed from other users-->
+            <GridView
+                android:id="@+id/grid_posts"
+                android:numColumns="3"
+                android:verticalSpacing="2dp"
+                android:horizontalSpacing="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:scrollbars="none" />
         </LinearLayout>
 
         <!-- Fragment Container -->
