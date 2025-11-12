@@ -1,10 +1,13 @@
 package com.example.journeytales;
 
+import android.app.AlertDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -43,7 +46,14 @@ public class ProfileFragment extends Fragment {
         //FAB click listener
         floatingActionButton.setOnClickListener(v -> addNewPostImage());
 
+        //This method will call the showimageFullscreen class
+        gridPosts.setOnItemClickListener((parent, view1, position, id) -> {
+            int selectedImage = imageList.get(position);
+            showImageFullScreen(selectedImage);
+        });
+
         return view;
+
     }
 
     private void addNewPostImage() {
@@ -53,4 +63,27 @@ public class ProfileFragment extends Fragment {
         gridPosts.smoothScrollToPosition(imageList.size() - 1);
         Toast.makeText(requireContext(), "New post added!", Toast.LENGTH_SHORT).show();
     }
+
+    //This class make the image clickable and expand when a user taps on the image
+    private void showImageFullScreen(int imageResId) {
+        // Create a full-screen ImageView
+        ImageView imageView = new ImageView(requireContext());
+        imageView.setImageResource(imageResId);
+        imageView.setAdjustViewBounds(true);
+        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        imageView.setBackgroundColor(Color.BLACK);
+        imageView.setPadding(25, 25, 25, 25);
+
+        // Build dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+        builder.setView(imageView);
+
+        AlertDialog dialog = builder.create();
+
+        // Close when the user taps the image
+        imageView.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
+    }
+
 }
