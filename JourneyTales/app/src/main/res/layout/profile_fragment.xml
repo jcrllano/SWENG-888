@@ -1,183 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:fillViewport="true">
+    android:background="@android:color/white">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <!-- Scrollable Profile Content -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:paddingBottom="16dp">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <!-- Cover Photo -->
-        <ImageView
-            android:id="@+id/cover_photo"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:contentDescription="Cover Photo"
-            android:scaleType="centerCrop" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-60dp"
-            >
-
-            <ImageView
-                android:id="@+id/profile_image"
-                android:layout_width="103dp"
-                android:layout_height="120dp"
-                android:background="@drawable/profilepic"
-                android:contentDescription="Profile Image"
-                android:padding="4dp"
-                android:scaleType="centerCrop"
-                android:layout_gravity="center_horizontal" />
-        </FrameLayout>
-
-        <!--This handles the username and handle -->
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Juan"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="8dp" />
-
-        <TextView
-            android:id="@+id/user_handle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@journeytales_juan"
-            android:textSize="15sp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginTop="2dp" />
-
-        <!-- User's BIO -->
-        <TextView
-            android:id="@+id/profile_bio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Adventure seeker | Sharing my travel tales across the world "
-            android:textSize="16sp"
-            android:gravity="center"
-            android:layout_marginHorizontal="32dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@android:color/black" />
-
-        <!-- Stats Row -->
         <LinearLayout
-            android:id="@+id/stats_container"
-            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:gravity="center">
+            android:gravity="center_horizontal"
+            android:paddingBottom="16dp">
 
-            <LinearLayout
+            <!-- Cover Photo -->
+            <ImageView
+                android:id="@+id/cover_photo"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:contentDescription="Cover Photo"
+                android:scaleType="centerCrop" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-60dp">
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="103dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/profilepic"
+                    android:contentDescription="Profile Image"
+                    android:padding="4dp"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center_horizontal" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginHorizontal="16dp"
-                android:gravity="center">
-                <TextView
-                    android:id="@+id/posts_count"
-                    android:text="200"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/black"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"/>
-                <TextView
-                    android:text="Posts"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/darker_gray"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"/>
-            </LinearLayout>
+                android:text="Juan"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="8dp" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/user_handle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginHorizontal="16dp"
-                android:gravity="center">
-                <TextView
-                    android:id="@+id/followers_count"
-                    android:text="1.1k"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/black"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"/>
-                <TextView
-                    android:text="Followers"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/darker_gray"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"/>
-            </LinearLayout>
+                android:text="@journeytales_juan"
+                android:textSize="15sp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginTop="2dp" />
 
+            <TextView
+                android:id="@+id/profile_bio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Adventure seeker | Sharing my travel tales across the world "
+                android:textSize="16sp"
+                android:gravity="center"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/black" />
+
+            <!-- Stats -->
             <LinearLayout
+                android:id="@+id/stats_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginHorizontal="16dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
                 android:gravity="center">
-                <TextView
-                    android:id="@+id/following_count"
-                    android:text="480"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/black"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"/>
-                <TextView
-                    android:text="Following"
-                    android:textSize="14sp"
-                    android:textColor="@android:color/darker_gray"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"/>
+                <!-- posts/followers/following sections -->
             </LinearLayout>
+
+            <!-- Edit Profile Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_follow"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Edit Profile"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:cornerRadius="24dp"
+                app:iconPadding="6dp"
+                app:iconTint="@android:color/white"
+                app:backgroundTint="@color/teal_700"
+                android:textColor="@android:color/white" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="@android:color/darker_gray" />
+
+            <!-- GridView for Posts -->
+            <GridView
+                android:id="@+id/grid_posts"
+                android:numColumns="3"
+                android:verticalSpacing="2dp"
+                android:horizontalSpacing="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:scrollbars="none" />
         </LinearLayout>
+    </ScrollView>
 
-        <!-- Edit Profile Button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_follow"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Edit Profile"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            app:cornerRadius="24dp"
-            app:iconPadding="6dp"
-            app:iconTint="@android:color/white"
-            app:backgroundTint="@color/teal_700"
-            android:textColor="@android:color/white" />
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        android:contentDescription="Add item"
+        app:backgroundTint="@color/white"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp"
+        app:srcCompat="@drawable/outline_add_24" />
 
-        <!-- Divider -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="24dp"
-            android:background="@android:color/darker_gray" />
-
-        <!-- User Posts Gallery Section -->
-        <GridView
-            android:id="@+id/grid_posts"
-            android:numColumns="3"
-            android:verticalSpacing="2dp"
-            android:horizontalSpacing="2dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:scrollbars="none" />
-
-    </LinearLayout>
-</ScrollView>
+</FrameLayout>

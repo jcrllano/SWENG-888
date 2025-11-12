@@ -62,10 +62,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         // Floating Action Button setup
-        floatingActionButton = findViewById(R.id.fab);
+       /* floatingActionButton = findViewById(R.id.fab);
         floatingActionButton.setOnClickListener(v -> {
             Toast.makeText(MainActivity.this, "FAB clicked!", Toast.LENGTH_SHORT).show();
-        });
+        }); */
     }
 
     //This class handles the clicks on the navigation button
